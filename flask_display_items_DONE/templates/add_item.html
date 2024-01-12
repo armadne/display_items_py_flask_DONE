@@ -1,0 +1,47 @@
+{% extends "home.html" %}
+
+{% block content %} 
+
+<h1>Add An Item</h1>
+
+
+    <form action="/add_item" method="post">
+        
+        
+        <label for="name">Name Of Item: </label>
+
+        <input type="text" name="name" placeholder="book" /></br></br>
+
+
+        <label for="publication_date">Date Of Publication: </label>
+
+        <input type="text" name="publication_date" placeholder="10/06/2022" /></br></br>
+        
+
+        <label for="short_description">Short Description: </label>
+
+        <textarea cols="16" rows="4" name="short_description" placeholder="A book about the chinese philosophy"></textarea></br></br>
+
+
+        <label for="full_description">Full Description:</label>
+
+        <textarea cols="22" rows="8" name="full_description" placeholder="A book about the chinese philosophy on the
+         famous philosopher named Conficius  born September 28, 551 BC. AD in Zou and died on April 11, 479 BC. 
+         BC in Qufu in present-day Shandong province, is a Chinese philosopher. 
+         His surname is Kong, his first name Qiu, and his social first name Zhongni."></textarea>
+
+
+        <input type="submit" value="publicate" />
+
+
+    </form>
+
+
+    {% for item in items %}
+
+        Name Of Item {{item.name}} , Date Of Publication {{item.publication_date}} , Short Description : {{item.short_description}} </br>
+
+    {% endfor %}
+
+
+{% endblock %}

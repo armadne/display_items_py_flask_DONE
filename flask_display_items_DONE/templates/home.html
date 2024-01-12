@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+
+      <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@300&family=PT+Sans+Narrow&display=swap" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="{{url_for('static', filename="style.css")}}">
+    </head>
+
+    <body>
+
+
+      <nav>
+        <ul>
+
+            <a href="{{url_for('home')}}"><li>Home</li></a>
+            <a href="{{url_for('add_item')}}"><li>Add An Item</li></a>
+            <a href="{{url_for('view_item')}}"><li>List Of Items</li></a>
+            
+            
+            
+        <ul>
+    </nav>
+
+
+        {% block content %}
+
+        <h1>Home Page</h1>
+        
+        
+          {% for item in items %} 
+          
+          
+               Item : {{item.name}} , Publication_date : {{item.publication_date}} , Short Description: {{item.short_description}} </br>
+          
+          {% endfor %}
+
+        
+        {% endblock %}
+
+
+    </body>
+</html>
